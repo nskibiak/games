@@ -4,7 +4,7 @@ class WhackARuby < Gosu::Window
   def initialize
     super(800, 600)
     self.caption = 'Whack the Ruby!'
-    @image = Gosu::Image.new('ruby.png')
+    @ruby_image = Gosu::Image.new('ruby.png')
     @x = 200
     @y = 200
     @width = 50
@@ -13,13 +13,15 @@ class WhackARuby < Gosu::Window
     @velocity_x = 2
     @velocity_y = 2
     @visible = 0
+    @hammer_image = Gosu::Image.new('hammer.png')
   end
 
   def draw
     # using new syntax; instead of:
     # if @visible > 0
     # using this:
-    @image.draw(@x - @width / 2, @y - @height / 2, 1) if @visible.positive?
+    @ruby_image.draw(@x - @width / 2, @y - @height / 2, 1) if @visible.positive?
+    @hammer_image.draw(mouse_x - 30, mouse_y - 30, 1)
   end
 
   def update
