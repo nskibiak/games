@@ -9,8 +9,9 @@ class WhackARuby < Gosu::Window
     @y = 200
     @width = 50
     @height = 43
-    @velocity_x = 1
-    @velocity_y = 1
+    # velocity is pixels per frame (at 60 frames(?) per second)
+    @velocity_x = 5
+    @velocity_y = 5
   end
 
   def draw
