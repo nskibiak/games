@@ -36,6 +36,7 @@ class WhackARuby < Gosu::Window
     # if hit == 1, we fill the screen with green
     draw_quad(0, 0, c, 800, 0, c, 800, 600, c, 0, 600, c)
     @hit = 0
+    @font.draw(@score.to_s, 700, 20, 2)
   end
 
   def update
