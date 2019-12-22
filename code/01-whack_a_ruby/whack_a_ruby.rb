@@ -15,6 +15,8 @@ class WhackARuby < Gosu::Window
     @visible = 0
     @hammer_image = Gosu::Image.new('hammer.png')
     @hit = 0
+    @font = Gosu::Font.new(30)
+    @score = 0
   end
 
   def draw
@@ -50,8 +52,10 @@ class WhackARuby < Gosu::Window
       # if the position of the mouse and the ruby (@x, @y) are within 50 pixels
       if Gosu.distance(mouse_x, mouse_y, @x, @y) < 50 && @visible >= 0
         @hit = 1
+        @score += 5
       else
         @hit = -1
+        @score -= 1
       end
     end
   end
